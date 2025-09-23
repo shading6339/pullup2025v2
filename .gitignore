@@ -34,3 +34,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# OpenNext / Cloudflare build outputs
+.open-next/
+.open-next-aws/
+.open-next-cloudflare/
+
+# Wrangler 関連
+.wrangler/
+.dev.vars
+.wrangler/ # プレビュー実行時に生成されるキャッシュ
+wrangler.toml.local
