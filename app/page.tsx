@@ -1,101 +1,96 @@
-import Image from "next/image";
+import { Navigation } from "@/components/navigation";
+import { HeroSection } from "@/components/hero-section";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Users, Target, Lightbulb, Award } from "lucide-react";
 
-export default function Home() {
+export default function HomePage() {
+  const features = [
+    {
+      icon: <Users className="h-8 w-8 text-accent" />,
+      title: "コミュニティ",
+      description:
+        "多様なバックグラウンドを持つメンバーが集まり、互いに学び合う環境を提供します。",
+    },
+    {
+      icon: <Target className="h-8 w-8 text-accent" />,
+      title: "目標達成",
+      description:
+        "個人の目標から団体の目標まで、確実に達成できるサポート体制を整えています。",
+    },
+    {
+      icon: <Lightbulb className="h-8 w-8 text-accent" />,
+      title: "イノベーション",
+      description:
+        "新しいアイデアを歓迎し、創造的な解決策を見つけることを重視しています。",
+    },
+    {
+      icon: <Award className="h-8 w-8 text-accent" />,
+      title: "実績",
+      description:
+        "数多くのプロジェクトを成功に導き、メンバーの成長を支援してきました。",
+    },
+  ];
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main>
+      <Navigation />
+      <HeroSection />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* About Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
+              <span className="font-cherry">PulluP</span>について
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+              私たちは学生の潜在能力を最大限に引き出し、社会で活躍できる人材を育成することを目指しています。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((feature, index) => (
+              <Card
+                key={index}
+                className="text-center hover:shadow-lg transition-shadow"
+              >
+                <CardHeader>
+                  <div className="flex justify-center mb-4">{feature.icon}</div>
+                  <CardTitle className="text-xl">{feature.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-pretty">
+                    {feature.description}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+      <section className="py-20 bg-gradient-to-r from-primary to-accent text-white rounded-b-2xl">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
+            一緒に成長しませんか？
+          </h2>
+          <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto text-pretty">
+            PulluPで新しい挑戦を始めて、あなたの可能性を広げましょう。
+          </p>
+          <Button
+            size="lg"
+            className="bg-white text-primary hover:bg-white/90 font-semibold"
+          >
+            参加する
+          </Button>
+        </div>
+      </section>
+    </main>
   );
 }
