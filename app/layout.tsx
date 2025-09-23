@@ -6,7 +6,6 @@ import { Analytics } from "@vercel/analytics/next";
 import { Suspense } from "react";
 import "./globals.css";
 import { Cherry_Bomb_One } from "next/font/google";
-import { Button } from "@/components/ui/button";
 
 const Cherry = Cherry_Bomb_One({
   subsets: ["latin"],

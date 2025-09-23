@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import Image from "next/image";
 
 export default function MembersPage() {
   const leadership = [
@@ -220,7 +221,7 @@ export default function MembersPage() {
                 className="overflow-hidden hover:shadow-lg transition-shadow"
               >
                 <div className="aspect-square bg-muted">
-                  <img
+                  <Image
                     src={leader.image || "/placeholder.svg"}
                     alt={leader.name}
                     className="w-full h-full object-cover"

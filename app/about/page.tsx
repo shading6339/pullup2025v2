@@ -8,7 +8,7 @@ import {
   MapPin,
   Clock,
   Instagram,
-  Twitter,
+  // Twitter,
   Github,
   Mail,
 } from "lucide-react";

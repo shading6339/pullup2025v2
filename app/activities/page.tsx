@@ -7,7 +7,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Users, Award, TrendingUp } from "lucide-react";
+// import { Calendar, Users, Award, TrendingUp } from "lucide-react";
+import { Calendar, Users, Award } from "lucide-react";
+import Image from "next/image";
 
 export default function ActivitiesPage() {
   const activities = [
@@ -129,7 +131,7 @@ export default function ActivitiesPage() {
                 <Card key={index} className="overflow-hidden">
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
                     <div className="lg:col-span-1 aspect-video lg:aspect-auto bg-muted">
-                      <img
+                      <Image
                         src={activity.image || "/placeholder.svg"}
                         alt={activity.title}
                         className="w-full h-full object-cover"

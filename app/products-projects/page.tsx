@@ -12,6 +12,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Calendar, Users, MapPin } from "lucide-react";
+import Image from "next/image";
 
 export default function ProductsProjectsPage() {
   const [activeTab, setActiveTab] = useState<"products" | "projects">(
@@ -147,7 +148,7 @@ export default function ProductsProjectsPage() {
                   className="overflow-hidden hover:shadow-lg transition-shadow"
                 >
                   <div className="aspect-video bg-muted">
-                    <img
+                    <Image
                       src={product.image || "/placeholder.svg"}
                       alt={product.title}
                       className="w-full h-full object-cover"
@@ -210,7 +211,7 @@ export default function ProductsProjectsPage() {
                 <Card key={index} className="overflow-hidden">
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                     <div className="aspect-video lg:aspect-auto bg-muted">
-                      <img
+                      <Image
                         src={project.image || "/placeholder.svg"}
                         alt={project.title}
                         className="w-full h-full object-cover"
