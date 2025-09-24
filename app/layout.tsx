@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Suspense } from "react";
 import "./globals.css";
 import { Cherry_Bomb_One } from "next/font/google";
+import { Navigation } from "@/components/navigation";
 
 const Cherry = Cherry_Bomb_One({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
         className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${Cherry.variable} bg-card`}
       >
         <Suspense fallback={<div>Loading...</div>}>
+          <Navigation />
           {children}
           <Analytics />
           {/* Footer */}

@@ -1,17 +1,23 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Navigation } from "@/components/navigation"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
-import { ChevronDown, ChevronUp } from "lucide-react"
+import { useState } from "react";
+// import { Navigation } from "@/components/navigation";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 export default function QAPage() {
-  const [openItems, setOpenItems] = useState<number[]>([])
+  const [openItems, setOpenItems] = useState<number[]>([]);
 
   const toggleItem = (index: number) => {
-    setOpenItems((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]))
-  }
+    setOpenItems((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+    );
+  };
 
   const faqs = [
     {
@@ -70,21 +76,23 @@ export default function QAPage() {
         {
           question: "企業との連携はありますか？",
           answer:
-            "多数の企業とパートナーシップを結んでおり、インターンシップの機会提供、技術指導、プロジェクトへの協賛などの形で連携しています。実際のビジネス現場を体験できる機会も豊富です。",
+            "企業などから依頼を受けて開発を行うこともあります。また、インターンシップや就職活動に役立つネットワーキングイベントも定期的に開催しています。",
         },
       ],
     },
-  ]
+  ];
 
   return (
     <main>
-      <Navigation />
+      {/* <Navigation /> */}
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-[#4d4d4d] to-[#212744] text-white">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">よくある質問</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
+              よくある質問
+            </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto text-pretty">
               PulluPについてよく寄せられる質問とその回答をまとめました
             </p>
@@ -97,20 +105,27 @@ export default function QAPage() {
         <div className="container mx-auto px-4 max-w-4xl">
           {faqs.map((category, categoryIndex) => (
             <div key={categoryIndex} className="mb-12">
-              <h2 className="text-2xl font-bold mb-6 text-accent">{category.category}</h2>
+              <h2 className="text-2xl font-bold mb-6 text-accent">
+                {category.category}
+              </h2>
 
               <div className="space-y-4">
                 {category.questions.map((faq, questionIndex) => {
-                  const itemIndex = categoryIndex * 100 + questionIndex
-                  const isOpen = openItems.includes(itemIndex)
+                  const itemIndex = categoryIndex * 100 + questionIndex;
+                  const isOpen = openItems.includes(itemIndex);
 
                   return (
                     <Card key={questionIndex}>
                       <Collapsible>
-                        <CollapsibleTrigger className="w-full" onClick={() => toggleItem(itemIndex)}>
+                        <CollapsibleTrigger
+                          className="w-full"
+                          onClick={() => toggleItem(itemIndex)}
+                        >
                           <CardHeader className="hover:bg-muted/50 transition-colors">
                             <div className="flex items-center justify-between">
-                              <CardTitle className="text-left text-lg text-balance">{faq.question}</CardTitle>
+                              <CardTitle className="text-left text-lg text-balance">
+                                {faq.question}
+                              </CardTitle>
                               {isOpen ? (
                                 <ChevronUp className="h-5 w-5 text-muted-foreground" />
                               ) : (
@@ -122,12 +137,14 @@ export default function QAPage() {
 
                         <CollapsibleContent>
                           <CardContent className="pt-0">
-                            <p className="text-muted-foreground text-pretty">{faq.answer}</p>
+                            <p className="text-muted-foreground text-pretty">
+                              {faq.answer}
+                            </p>
                           </CardContent>
                         </CollapsibleContent>
                       </Collapsible>
                     </Card>
-                  )
+                  );
                 })}
               </div>
             </div>
@@ -138,7 +155,9 @@ export default function QAPage() {
       {/* Contact CTA */}
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-balance">他にご質問がありますか？</h2>
+          <h2 className="text-3xl font-bold mb-4 text-balance">
+            他にご質問がありますか？
+          </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty">
             こちらに掲載されていない質問がございましたら、お気軽にお問い合わせください。
           </p>
@@ -151,5 +170,5 @@ export default function QAPage() {
         </div>
       </section>
     </main>
-  )
+  );
 }

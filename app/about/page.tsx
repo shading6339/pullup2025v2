@@ -1,7 +1,7 @@
-import { Navigation } from "@/components/navigation";
+// import { Navigation } from "@/components/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import {
   Users,
   Calendar,
@@ -11,6 +11,7 @@ import {
   // Twitter,
   Github,
   Mail,
+  Info,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -102,11 +103,31 @@ export default function AboutPage() {
       url: "mailto:contact@pullup.run",
       handle: "contact@pullup.run",
     },
+    {
+      name: "問い合わせフォーム",
+      icon: Info,
+      url: "/contact",
+      handle: "お問い合わせ",
+    },
   ];
 
+  const otherInfo = [
+    {
+      title: "活動場所",
+      description: "大阪工業大学梅田キャンパスおよびオンライン",
+    },
+    {
+      title: "参加条件",
+      description: "大阪工業大学の学生であれば学年・専攻問わず誰でも参加可能",
+    },
+    {
+      title: "活動費用",
+      description: "0円",
+    },
+  ];
   return (
     <main>
-      <Navigation />
+      {/* <Navigation /> */}
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-[#4d4d4d] to-[#212744] text-white">
@@ -258,9 +279,36 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 text-balance">
+            その他の情報
+          </h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="grid gap-6">
+              {otherInfo.map((info, index) => (
+                <Card key={index}>
+                  <CardContent className="p-6">
+                    <div className="flex flex-col md:flex-row md:items-center gap-4">
+                      <div className="flex items-center gap-4">
+                        <Badge variant="outline" className="min-w-[4rem]">
+                          {info.title}
+                        </Badge>
+                        <div className="text-sm text-muted-foreground">
+                          {info.description}
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Social Links */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-balance">
             SNS・連絡先
@@ -300,9 +348,12 @@ export default function AboutPage() {
           <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto text-pretty">
             技術を学び、仲間と共に成長し、実際のプロダクト開発に携わることができます。
           </p>
-          <Button size="lg" variant="secondary">
+          <Link
+            href="/join"
+            className="px-8 py-2 rounded-lg hover:bg-gray-800/90 bg-gray-800 text-sm font-semibold"
+          >
             入会について詳しく見る
-          </Button>
+          </Link>
         </div>
       </section>
     </main>

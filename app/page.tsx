@@ -1,4 +1,4 @@
-import { Navigation } from "@/components/navigation";
+// import { Navigation } from "@/components/navigation";
 import { HeroSection } from "@/components/hero-section";
 import {
   Card,
@@ -7,8 +7,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { Users, Target, Lightbulb, Award } from "lucide-react";
+import Link from "next/link";
 
 export default function HomePage() {
   const features = [
@@ -40,8 +41,13 @@ export default function HomePage() {
 
   return (
     <main>
-      <Navigation />
+      {/* <Navigation /> */}
       <HeroSection />
+      <p className="bg-white/20 px-2 py-0.5 text-xs text-center text-gray-150">
+        このHPは大阪工業大学の公式HPではありません。
+        <span className="">PulluP</span>
+        サークルが責任を持って管理しています
+      </p>
 
       {/* About Section */}
       <section className="py-20 bg-background">
@@ -83,12 +89,12 @@ export default function HomePage() {
           <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto text-pretty">
             PulluPで新しい挑戦を始めて、あなたの可能性を広げましょう。
           </p>
-          <Button
-            size="lg"
-            className="bg-white text-primary hover:bg-white/90 font-semibold"
+          <Link
+            href="/join"
+            className="bg-white text-primary hover:bg-white/90 font-semibold px-8 py-2 rounded-lg transition-all duration-300 hover:scale-105"
           >
             参加する
-          </Button>
+          </Link>
         </div>
       </section>
     </main>

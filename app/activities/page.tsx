@@ -1,4 +1,4 @@
-import { Navigation } from "@/components/navigation";
+// import { Navigation } from "@/components/navigation";
 import {
   Card,
   CardContent,
@@ -14,24 +14,15 @@ import Image from "next/image";
 export default function ActivitiesPage() {
   const activities = [
     {
-      date: "2024年3月",
-      title: "Tech Conference 2024 開催",
-      description:
-        "最新技術トレンドを学ぶ学生向けカンファレンスを成功裏に開催。150名の参加者を集め、5つの技術セッションと20社の企業ブースを展開。",
-      type: "イベント",
-      participants: 1,
-      achievement: "参加者満足度95%",
-      image: "/tech-conference-stage.png",
-    },
-    {
-      date: "2023年10月",
+      date: "2023年4月",
       title: "PulluP設立",
       description:
         "学生の可能性を最大限に引き出すことを目的として、PulluPサークルを正式に設立。初期メンバー20名でスタート。",
       type: "設立",
       participants: 20,
       achievement: "サークル設立",
-      image: "/team-founding-celebration.jpg",
+      // image: "/team-founding-celebration.jpg",
+      image: "",
     },
   ];
 
@@ -69,7 +60,7 @@ export default function ActivitiesPage() {
 
   return (
     <main>
-      <Navigation />
+      {/* <Navigation /> */}
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-[#4d4d4d] to-[#212744] text-white">
@@ -132,7 +123,9 @@ export default function ActivitiesPage() {
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
                     <div className="lg:col-span-1 aspect-video lg:aspect-auto bg-muted">
                       <Image
-                        src={activity.image || "/placeholder.svg"}
+                        width={400}
+                        height={300}
+                        src={activity.image || "/images/placeholder.svg"}
                         alt={activity.title}
                         className="w-full h-full object-cover"
                       />
@@ -180,7 +173,7 @@ export default function ActivitiesPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/project"
+              href="/works"
               className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
             >
               進行中のプロジェクト
