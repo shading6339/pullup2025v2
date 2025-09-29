@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, PanelTop } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -23,9 +23,12 @@ export default function MembersPage() {
       // image: "https://avatars.githubusercontent.com/u/55614086?v=4",
       image: "/images/55614086.png",
       social: {
-        github: "#",
-        linkedin: "#",
-        twitter: "#",
+        github: "https://github.com/shading6339",
+        mail: "mailto:m1m02520114@oit.ac.jp?subject=PulluP%E3%82%B5%E3%83%BC%E3%82%AF%E3%83%AB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B",
+        website: "https://portfolio.nonsaba.com",
+
+        // linkedin: "#",
+        // twitter: "#",
       },
     },
     {
@@ -45,9 +48,10 @@ export default function MembersPage() {
       // image: "https://avatars.githubusercontent.com/u/35647163?v=4",
       image: "/images/35647163.jpeg",
       social: {
-        github: "#",
-        linkedin: "#",
-        mail: "#",
+        github: "https://github.com/charokoukuu",
+        // linkedin: "#",
+        mail: "mailto:m1m24r19@oit.ac.jp?subject=PulluP%E3%82%B5%E3%83%BC%E3%82%AF%E3%83%AB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B",
+        website: "https://portfolio.run-ticket.com",
       },
     },
     {
@@ -60,9 +64,9 @@ export default function MembersPage() {
       // image: "https://avatars.githubusercontent.com/u/105847293?v=4",
       image: "/images/105847293.jpeg",
       social: {
-        // github: "#",
+        github: "https://github.com/mattun1018",
         // twitter: "#",
-        // mail: "",
+        mail: "mailto:m1m24r34@oit.ac.jp?subject=PulluP%E3%82%B5%E3%83%BC%E3%82%AF%E3%83%AB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B",
       },
     },
   ];
@@ -159,6 +163,8 @@ export default function MembersPage() {
 
   const getSocialIcon = (platform: string) => {
     switch (platform) {
+      case "website":
+        return PanelTop;
       case "github":
         return Github;
       case "linkedin":
@@ -248,8 +254,12 @@ export default function MembersPage() {
                           key={platform}
                           href={url}
                           className="p-2 rounded-md bg-muted hover:bg-accent hover:text-accent-foreground transition-colors"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={platform}
+                          title={platform}
                         >
-                          <IconComponent className="h-4 w-4" />
+                          <IconComponent className="h-4 w-4 " />
                         </a>
                       );
                     })}
