@@ -16,7 +16,7 @@ import Link from "next/link";
 
 export default function ProductsProjectsPage() {
   const [activeTab, setActiveTab] = useState<"products" | "projects">(
-    "products"
+    "products",
   );
 
   const products = [
@@ -38,7 +38,7 @@ export default function ProductsProjectsPage() {
       status: "リリース済み",
       image: "/images/figare.PNG",
       demoUrl: "https://figare.web.app",
-      githubUrl: "#",
+      githubUrl: "",
     },
     {
       title: "Roomie",
@@ -53,8 +53,8 @@ export default function ProductsProjectsPage() {
       ],
       status: "開発中",
       image: "",
-      demoUrl: "#",
-      githubUrl: "#",
+      // demoUrl: "#",
+      githubUrl: "",
     },
     {
       title: "HydroLink",
@@ -62,6 +62,9 @@ export default function ProductsProjectsPage() {
         "水耕栽培システムの遠隔監視・制御プラットフォーム。センサーからのデータをリアルタイムで可視化し、スマートフォンやPCから環境設定を調整可能。効率的な栽培管理と収穫量の最適化を実現します。",
       tags: ["Flutter", "Dart", "Supabase", "IoT", "Swift"],
       status: "開発中",
+      image: "/images/hydroLink.png",
+      // demoUrl: "#"
+      githubUrl: "",
     },
   ];
 
@@ -137,7 +140,7 @@ export default function ProductsProjectsPage() {
                       height={300}
                       src={product.image || "/images/placeholder.svg"}
                       alt={product.title}
-                      className="w-auto h-full object-cover mx-auto"
+                      className="w-auto h-full object-cover mx-auto rounded-xl"
                     />
                   </div>
                   <CardHeader>
@@ -148,8 +151,8 @@ export default function ProductsProjectsPage() {
                           product.status === "リリース済み"
                             ? "default"
                             : product.status === "開発中"
-                            ? "secondary"
-                            : "outline"
+                              ? "secondary"
+                              : "outline"
                         }
                       >
                         {product.status}
@@ -171,14 +174,27 @@ export default function ProductsProjectsPage() {
                         </Badge>
                       ))}
                     </div>
-                    <div className="flex gap-2">
-                      <Button size="sm" className="flex-1">
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        デモ
-                      </Button>
-                      <Button size="sm" variant="outline">
-                        <Github className="h-4 w-4" />
-                      </Button>
+                    <div className="flex gap-2 ">
+                      {product.demoUrl && (
+                        <Link
+                          className="flex-1 px-4 py-2 flex items-center justify-center bg-gray-800 hover:bg-gray-800/90 text-white rounded-lg hover:scale-105 transition-transform"
+                          href={product.demoUrl}
+                          target="_blank"
+                        >
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          デモ
+                        </Link>
+                      )}
+                      {product.githubUrl && (
+                        <Link
+                          href={product.githubUrl}
+                          target="_blank"
+                          className="flex-1 px-4 py-2 flex items-center justify-center bg-gray-800 hover:bg-gray-800/90 text-white rounded-lg hover:scale-105 transition-transform"
+                        >
+                          <Github className="h-4 w-4 mr-2" />
+                          GitHub
+                        </Link>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
@@ -213,8 +229,8 @@ export default function ProductsProjectsPage() {
                             project.status === "完了"
                               ? "default"
                               : project.status === "進行中"
-                              ? "secondary"
-                              : "outline"
+                                ? "secondary"
+                                : "outline"
                           }
                         >
                           {project.status}
@@ -256,7 +272,7 @@ export default function ProductsProjectsPage() {
                                 <div className="w-1.5 h-1.5 bg-accent rounded-full" />
                                 {highlight}
                               </li>
-                            )
+                            ),
                           )}
                         </ul>
                       </div>
